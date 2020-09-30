@@ -12,8 +12,11 @@ lib-y += \
 	 swupdate-client.o \
 	 swupdate-progress.o \
 	 swupdate-hawkbitcfg.o \
-	 swupdate-sendtohawkbit.o \
-	 swupdate-sysrestart.o
+	 swupdate-sendtohawkbit.o
+
+ifeq ($(CONFIG_CURL),y)
+lib-y += swupdate-sysrestart.o
+endif
 
 # # Uncomment the next lines to integrate the compiling/linking of
 # # any .c files placed alongside the above "official" tools in the
